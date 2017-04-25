@@ -12,6 +12,7 @@ var Encryption = require('./util/encryption');
  */
 function replaceEnvironmentVariables(grunt, original)
 {
+
     //Only replace in strings
     if(typeof original !== "string") {
         return original;
@@ -19,11 +20,21 @@ function replaceEnvironmentVariables(grunt, original)
     
     var tokenRegExp = new RegExp("\\$\\{(.+?)\\}","g");
     
+    
     var result = original.replace(tokenRegExp, function(a,b) {
         var environmentVariableValue = process.env[b] || grunt.option(b);
-        if (typeof environmentVariableValue !== 'undefined') {
+        
+
+        if(typeof environmentVariableValue !== 'undefined' && environmentVariableValue == true){
+            environmentVariableValue = "true";
+        }
+        else if(typeof environmentVariableValue !== 'undefined' && environmentVariableValue == false){
+            environmentVariableValue = "false";
+        }
+        else if (typeof environmentVariableValue !== 'undefined') {
             environmentVariableValue.replace(/(^\s*)|(\s*$)/,"");
         }
+                
         return environmentVariableValue;
     });
     
@@ -57,7 +68,7 @@ module.exports = function(grunt) {
         grunt.fail.fatal(e.toString());
     }
     
-
+    
     //Load project config.json
     var projectFileName = 'build/projects/' +   configData.settings['build.project.name'] + '/config.json';
     grunt.log.write('   * Loading ' + projectFileName + '... ');
