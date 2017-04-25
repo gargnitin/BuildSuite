@@ -32,6 +32,12 @@
       "username": "${build.project.username}",
       "password": "${build.project.password}"   
     },
+    "two_factor": {
+      "enabled": "${build.twofactor}",
+      "cert": "secure/petsmart.p12",
+      "password": "secure",
+      "url": "cert.staging.<server>.demandware.net"
+    },
     "site_import": {
       "instance": "siteGenesis"
     }
