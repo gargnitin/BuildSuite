@@ -1,0 +1,40 @@
+{
+	"browser": true,
+	"jquery": true,
+	"node": true,
+
+	// curly braces for single statements
+	"curly": true,
+
+	// prevent deep nesting of if statements etc
+	"maxdepth": 2,
+
+	// stop reporting errors after this threshold
+	"maxerr": 1000,
+
+	// warn about undefined symbols
+	"undef": true,
+
+	// warn about unused symbols
+	"unused": true,
+
+	"globals": {
+		// alert and console can be considered harmful if deployed to production
+		"alert": false,
+		"console": false,
+
+		// client-side extras
+		"window": false,
+
+		// dw built-ins
+		"empty": false,
+		"request": true,
+		"session": true,
+		"response": true,
+		"dw": false,
+
+		// mocha globals, these will be re-defined in integration tests using jasmine.
+		"describe": true,
+		"it": true
+	}
+}

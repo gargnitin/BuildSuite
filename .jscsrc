@@ -1,0 +1,64 @@
+{
+	"preset": "airbnb",
+
+	// we use Tabs
+	"validateIndentation": "\t",
+
+	// don"t validate line breaks on Windows
+	"validateLineBreaks": null,
+
+	// we allow multiple variables in the same "var" declaration
+	"disallowMultipleVarDecl": null,
+
+	// jQuery variables should start with dollar sign
+	"requireDollarBeforejQueryAssignment": true,
+
+	// don't put else on its own line
+	"disallowKeywordsOnNewLine": [ "else" ],
+
+	// don't put opening braces on their own line
+	"disallowNewlineBeforeBlockStatements": true,
+
+	// '} else {' is valid, '}else {' is not
+	"requireSpaceBeforeKeywords": [ "else" ],
+
+	// '} else {' is valid, '}  else {' is not
+	"disallowMultipleSpaces": true,
+
+	"requireTrailingComma": null,
+
+	//enable jsDoc validation
+	"jsDoc": {
+
+		//make sure jsdoc3 is used
+		"checkAnnotations": {
+			"preset": "jsdoc3"
+		},
+
+		// enforcing existence of jsdoc comment but not for exports and expression functions
+		"enforceExistence": {
+			"allExcept": ["exports", "expressions"]
+		},
+
+		// if a param description is present, add a hyphen between the type and description for uniformity
+		"requireHyphenBeforeDescription": true,
+
+		// if params are defined, the name should be correct
+		"checkParamNames": true,
+
+		// if params are defined, the type should be declared
+		"requireParamTypes": true,
+
+		// if params are defined, there shouldn't be any redundant params defined.
+		"checkRedundantParams": true,
+
+		// if params are defined, add a description
+		"requireParamDescription": true,
+
+		// if a return is defined, the type has to be defined
+		"requireReturnTypes": true,
+
+		// if a return is defined, it should be present in code as well
+		"checkRedundantReturns": true
+	}
+}

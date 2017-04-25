@@ -1,0 +1,30 @@
+{
+   "settings": {
+    "build.project.name": "sitegenesis-sample",
+    "build.project.version": "build-suite-sitegenesis",
+    "build.project.number": "0_0_1",
+
+    "password.encryption": true,
+
+    "build.optimize.js": true,
+    "build.optimize.css": true,
+    "static.files.concatenate": true,
+    
+    "code.upload.granularity": "VERSION",
+    "code.upload.cleanup": true,
+    "code.upload.excludehidden": false,
+    
+    "build.project.codeonly": true,
+    "config.archive.name": "sitegenesis-demo-data",
+    "meta.archive.name": "sitegenesis-meta",
+    "site_export.sites": ["SiteGenesis", "SiteGenesisGlobal"],
+    
+    "content.archive.name": "-",
+	
+	"storefront_build_information": {
+		"enabled": true,
+		"target_cartridge": "app_storefront_core",
+		"target_template": "default/components/footer/footer.isml"
+	}
+  }
+}

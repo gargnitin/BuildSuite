@@ -1,0 +1,111 @@
+/**
+ * Annotated config.json for documentation purpose
+ *
+ * Do not use this file as config.json directly since json is not intended to contain any comments!
+ * If you want to use this as a template, please use some JS minifier or remove all comments manually.
+ *
+ * NOTE: All properties that are not listed in the minimum example are to be considered as optional. This file shows default values for all optional settings.
+ *
+ * Also you can set a placeholders what could be overridden by a dynamic values
+ * console command example: grunt gruntTask --argName=argValue
+ * config example: {
+ *  ...
+ *  "configOptionName": "${argName}"
+ *  ...
+ * }
+ */
+{
+  /** In this list you can configure all kinds of repositories you want to include into the project. */
+  "dependencies": [
+    {
+      "repository": {
+        /** Repository URL, e.g. https://example.com/repo or file://C:/myProjectFolder */
+        "url": "git@bitbucket.org:demandware/sitegenesis.git",
+        /** Or example with value from grunt cla: grunt gruntTask --repository.url=git@bitbucket.org:demandware/sitegenesis.git*/
+        "url": "${repository.url}",
+        
+        /** Repository type: git, svn, file */
+        "type": "git",
+        
+        /** In case a CVS is used, specify the desired branch here. Defaults to master/trunk. */
+        "branch" : "master",
+        
+        /** In case you use https, you can specify authentication credentials here */
+        "username": "anonymous",
+        "password": "secure"
+      },
+      "source": {
+        /** Cartridge folder, this is where the cartridges are pulled from 
+          * NOTE: Defaults to "cartridges". Use "." if your cartridges are located in the repository's root folder. 
+          */
+        "path": "cartridges",
+        
+        /** Glob the source files. See http://gruntjs.com/configuring-tasks#globbing-patterns */
+        "glob": "**/*",
+        
+        /** Set this to true if you want to suppress "empty source folder" warnings */
+        "ignoreEmpty": false
+      },
+      "siteImport": {
+        /** Site import for each repository is enabled by default */
+        "enabled": "true",
+        
+        /** Path where site initialization (=configuration) data is placed. */
+        "initPath": "sites/site_template",
+        
+        /** Additional path for demo-site data. */
+        "demoPath": "sites/site_demo",
+        
+        /** Path where instance-specific text replacements are configured. See "targetInstance" setting below. */
+        "instancePath": "sites/config"
+      },
+      /** List of included cartridges represented by their folder names. */
+      "cartridges": [
+        "app_storefront_core"
+      ]
+    }
+  ],
+
+  "environment": {
+     /** Path that is watched for changes. Used along with watch task for automatic uploads. */
+    "watch_path": "C:/Users/<home dir>",
+    
+    /** WebDAV settings: Server URL, username, password */
+    "webdav": {
+      "server": "staging.<server>.demandware.net",
+      "username": "build",
+      "password": "secure"   
+    },
+    
+    /** 
+     * Two-factor-auth settings 
+     *  - additional cert URL is needed for WebDAV if enabled
+     *  - certificate file path is relative to build suite root (can be absolute too)
+     */
+    "two_factor": {
+      "enabled": "false",
+      "cert": "certs/cert.p12",
+      "password": "secure",
+      "url": "cert.staging.<server>.demandware.net"
+    },
+       
+    /** 
+     * Here you can select a target instance that is going to be configured by additional replacements.
+     *  - There must be a folder under the configured "instancePath" folder with the name of the instance.
+     *  - A config.json file is expected in that folder, defining XML and Test-based replacements.
+     */
+    "site_import": {
+      "instance": "mySandbox"
+    },
+    
+    /** 
+     * SASS settings, values below are used as default. Please note the required folder structure:
+     *  - "cartridge/<sourcePath>/[locale]/<sourceFile>" will map to "cartridge/static/[locale]/css/<sourceFile>.css"
+     *  - E.g. cartridge/scss/en_US/style.scss => cartridge/static/en_US/css/style.css 
+     */
+    "sass": {
+      "sourcePath": "scss",
+      "sourceFile": "style.scss"
+    }
+  }
+}

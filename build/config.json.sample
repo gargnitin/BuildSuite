@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "build.project.name": "sample",
+    "build.project.version": "build-suite-sample",
+    "build.project.number": "0_0_1",
+
+    "password.encryption": true,
+
+    "build.optimize.js": true,
+    "build.optimize.css": true,
+    "static.files.concatenate": true,
+    
+    "code.upload.granularity": "VERSION",
+    "code.upload.cleanup": true,
+    "code.upload.excludehidden": false,
+    
+    "build.project.codeonly": false,
+    "config.archive.name": "sample-demo-data",
+    "meta.archive.name": "sample-meta-data",
+    "site_export.sites": ["SiteGenesis", "SiteGenesisGlobal"],
+    
+    "content.archive.name": "previously-uploaded-content-file.zip",
+	
+    "storefront_build_information": {
+	  "enabled": true,
+      "target_cartridge": "app_storefront_core",
+      "target_template": "default/components/footer/footer.isml"
+	}
+  }
+}
