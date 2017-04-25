@@ -8,14 +8,4 @@ node_modules
 #Exclude Jetbrains IDE project folder
 .idea
 
-#Exclude Configuration, except sample
-build/*
-!build/config.json.sample
-!build/config.json.sitegenesis
 
-#Exclude configured projects, except sample projects
-!/build/
-!/build/projects
-/build/projects/*
-!/build/projects/sample/
-!/build/projects/sitegenesis/

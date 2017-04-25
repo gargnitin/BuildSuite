@@ -1,0 +1,28 @@
+{
+  "dependencies": [
+    {
+      "repository": {
+        "url": "gh.ssg.petsmart.com:digital/demandware.git",
+        "type": "git",
+        "branch" : "master"
+      },
+      "source": {
+        "path": ".",
+        "glob": "**/*",
+        "ignoreEmpty": false
+      },
+      "siteImport": {
+        "enabled": "false",
+        "demoPath": "demo_data_no_hires_images"
+      }
+    }
+  ],
+
+  "environment": {
+    "webdav": {
+      "server": "${build.project.environment}",
+      "username": "ngarg7@sapient.com",
+      "password": "t8kdrXdL61E_IsaTTqsQ5MhJrQvU0a/4xw=="   
+    }
+  }
+}

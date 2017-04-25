@@ -1,0 +1,39 @@
+{
+  "dependencies": [
+    {
+      "repository": {
+        "url": "file://C:/Program Files (x86)/Jenkins/workspace/DW local env job",
+        "type": "file",
+        "branch" : "master"
+      },
+      "source": {
+        "path": ".",
+        "glob": "**/*",
+        "ignoreEmpty": false
+      },
+      "siteImport": {
+        "enabled": "${siteImport.enabled}",
+        "demoPath": "sites/site_demo",
+        "initPath": "sites/site_template",
+        "instancePath": "sites/config"
+      },
+      "cartridges": [
+        "SiteGen_New_core",
+        "SiteGen_New_controllers",
+        "SiteGen_New_pipelines",
+		"TestBM"
+      ]
+    }
+  ],
+
+  "environment": {
+    "webdav": {
+      "server": "${build.project.environment}",
+      "username": "${build.project.username}",
+      "password": "${build.project.password}"   
+    },
+    "site_import": {
+      "instance": "siteGenesis"
+    }
+  }
+}
